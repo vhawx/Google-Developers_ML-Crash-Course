@@ -15,8 +15,10 @@ from tensorflow.python.data import Dataset
 '''
 Sparsity and L1 Regularization
 - Calculate the size of a model
-- Apply L1 regularization to reduce the size of a model by increasing sparsity
-reduce complexity - use a regularization function that encourages weights to be exactly zero.
+- Apply L1 regularization
+  - to reduce the size of a model
+  - by increasing sparsity reduce complexity
+  - use a regularization function that encourages weights to be exactly zero.
 For linear models like regression, a zero weight is equivalent to not using the
 corresponding feature at all.
 In addition to avoiding overfitting, the resulting model will be more efficient.
@@ -187,7 +189,7 @@ def construct_feature_columns():
 
 '''
 Calculate the Model Size
-To calculate the model size, we simply count the number of parameters that are non-zero.
+To calculate model size, simply count the number of parameters that are non-zero.
 We provide a helper function below to do that.
 The function uses intimate knowledge of the Estimators API - don't worry about understanding how it works.
 '''
@@ -207,7 +209,7 @@ def model_size(estimator):
 
 '''
 Reduce the Model Size
-Your team needs to build a highly accurate Logistic Regression model on the SmartRing,
+build a highly accurate Logistic Regression model on the SmartRing,
 a ring that is so smart it can sense the demographics of a city block:
 ('median_income', 'avg_rooms', 'households', ..., etc.)
 and tell you whether the given city block is high cost city block or not.
@@ -220,8 +222,6 @@ use L1 regularization—to tune the model to satisfy both the size and accuracy 
 '''
 Task 1: Find a good regularization coefficient.
 Find an L1 regularization strength parameter which satisfies both constraints — model size is less than 600 and log-loss is less than 0.35 on validation set.
-
-The following code will help you get started.
 There are many ways to apply regularization to your model.
 Here, we chose to do it using FtrlOptimizer, which is designed to give better results with L1 regularization than standard gradient descent.
 Again, the model will train on the entire data set, so expect it to run slower than normal.
@@ -340,3 +340,4 @@ linear_classifier = train_linear_classifier_model(
     validation_examples=validation_examples,
     validation_targets=validation_targets)
 print("Model size:", model_size(linear_classifier))
+print("test")
