@@ -12,6 +12,17 @@ import sklearn.metrics as metrics
 import tensorflow as tf
 from tensorflow.python.data import Dataset
 
+
+'''
+Learning Objectives:
+	• Create a synthetic feature that is the ratio of two other features
+	• Use this new feature as an input to a linear regression model
+	• Improve the effectiveness of the model by identifying and clipping (removing) outliers out of the input data
+
+Let's revisit our model from the previous First Steps with TensorFlow exercise.
+First, we'll import the California housing data into a pandas DataFrame:
+'''
+
 tf.logging.set_verbosity(tf.logging.ERROR)
 pd.options.display.max_rows = 10
 pd.options.display.float_format = '{:.1f}'.format
